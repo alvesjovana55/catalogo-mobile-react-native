@@ -1,50 +1,168 @@
-# Welcome to your Expo app 👋
+# 📱 Catálogo de Produtos - React Native App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Um aplicativo mobile de catálogo de produtos desenvolvido com React Native e Expo, oferecendo uma experiência de navegação intuitiva por categorias de produtos masculinos e femininos, com autenticação e um toque especial para torcedores do Corinthians.
 
-## Get started
+## ✨ Funcionalidades
 
-1. Install dependencies
+### 🔐 Autenticação
+
+- Tela de login com design moderno e animações
+- Validação de usuário e senha
+- Logout seguro
+
+### 🛍️ Catálogo de Produtos
+
+- **8 categorias organizadas**:
+  - **Masculino**: Camisas, Sapatos, Relógios
+  - **Feminino**: Bolsas, Vestidos, Joias, Sapatos, Relógios
+- Navegação por abas intuitivas
+- Lista de produtos com imagens, preços e descontos
+- Detalhes completos de cada produto
+
+### ⚽ Destaque Especial
+
+- **Camiseta Corinthians** aparece nas categorias de camisas (masculino e feminino)
+- Imagens personalizadas para cada gênero
+- Alerta interativo ao tocar no produto
+- Descrição especial com toque leve e divertido
+
+### 🎨 Design e UX
+
+- Interface moderna com gradientes e animações
+- Tema escuro com elementos translúcidos
+- Animação do logo na tela de login
+- Feedback visual em interações
+- Suporte a dispositivos iOS e Android
+
+## 🛠️ Tecnologias Utilizadas
+
+- **React Native** - Framework para desenvolvimento mobile
+- **Expo** - Plataforma para desenvolvimento e build
+- **React Navigation** - Navegação entre telas
+- **Axios** - Cliente HTTP para API
+- **Expo Linear Gradient** - Gradientes visuais
+- **Ionicons** - Ícones vetoriais
+- **DummyJSON API** - Fonte de dados dos produtos
+
+## 📦 Instalação e Execução
+
+### Pré-requisitos
+
+- Node.js (versão 18 ou superior)
+- npm ou yarn
+- Expo CLI
+- Dispositivo físico ou emulador/simulador
+
+### Passos para instalação
+
+1. **Clone o repositório**
+
+   ```bash
+   git clone <url-do-repositorio>
+   cd catalogo-app
+   ```
+
+2. **Instale as dependências**
 
    ```bash
    npm install
    ```
 
-2. Start the app
+3. **Inicie o servidor de desenvolvimento**
 
    ```bash
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+4. **Execute no dispositivo**
+   - **iOS**: Pressione `i` no terminal ou escaneie o QR code com a câmera do iOS
+   - **Android**: Pressione `a` no terminal ou use o app Expo Go
+   - **Web**: Pressione `w` para executar no navegador
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## 📁 Estrutura do Projeto
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```
+catalogo-app/
+├── app.json                    # Configurações do Expo
+├── package.json               # Dependências e scripts
+├── tsconfig.json              # Configuração TypeScript
+├── assets/
+│   ├── images/                # Imagens do app
+│   │   ├── react-logo.png     # Logo animado
+│   │   ├── corinthians-shirt.jpg    # Camisa Corinthians masculina
+│   │   ├── corinthians.jpg    # Camisa Corinthians feminina
+│   │   └── ...                # Outros assets
+├── src/
+│   ├── contexts/
+│   │   └── AuthContext.js     # Contexto de autenticação
+│   ├── navigation/
+│   │   └── RootNavigator.js   # Navegação principal
+│   ├── screens/
+│   │   ├── LoginScreen.js     # Tela de login
+│   │   ├── ProductsScreen.js  # Lista de produtos
+│   │   └── ProductDetailScreen.js # Detalhes do produto
+│   └── services/
+│       └── api.js             # Configuração da API
+├── components/                # Componentes reutilizáveis
+├── constants/                 # Constantes do app
+├── hooks/                     # Hooks customizados
+└── scripts/                   # Scripts utilitários
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## 🚀 Como Usar
 
-## Learn more
+1. **Login**: Digite qualquer usuário e senha para acessar
+2. **Navegação**: Use as abas na parte inferior para alternar entre categorias
+3. **Produtos**: Toque em qualquer produto para ver detalhes
+4. **Corinthians**: Nas abas "Men Shirt" e "Women Dresses", toque na camiseta especial
+5. **Logout**: Use o ícone no canto superior direito de qualquer tela
 
-To learn more about developing your project with Expo, look at the following resources:
+## 🔧 Scripts Disponíveis
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- `npm start` - Inicia o servidor de desenvolvimento
+- `npm run lint` - Executa o linter para verificar código
+- `npx expo build` - Gera build de produção
 
-## Join the community
+## 📊 API Utilizada
 
-Join our community of developers creating universal apps.
+O app consome dados da [DummyJSON API](https://dummyjson.com/), especificamente:
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- `/products/category/{categoria}` - Lista produtos por categoria
+
+## 🎨 Personalização
+
+### Adicionando novas categorias
+
+1. Edite `src/navigation/RootNavigator.js`
+2. Adicione novo objeto no array `tabScreens`
+3. Certifique-se que a categoria existe na API
+
+### Modificando imagens
+
+- Coloque novas imagens em `assets/images/`
+- Use `require("../../assets/images/nome-imagem.jpg")` no código
+
+### Alterando cores/temas
+
+- Modifique os estilos em cada componente
+- Para temas globais, considere usar Context API
+
+## 🤝 Contribuição
+
+1. Fork o projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`)
+3. Commit suas mudanças (`git commit -am 'Adiciona nova feature'`)
+4. Push para a branch (`git push origin feature/nova-feature`)
+5. Abra um Pull Request
+
+## 📝 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
+
+## 👥 Autor
+
+Desenvolvido com ❤️ para demonstrar habilidades em React Native e desenvolvimento mobile.
+
+---
+
+**Nota**: Este é um projeto de demonstração. Para produção, considere implementar autenticação real, cache de imagens, testes automatizados e tratamento de erros mais robusto.
